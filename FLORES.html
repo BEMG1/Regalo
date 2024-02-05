@@ -1,3 +1,29 @@
+<style>
+
+  .night {
+      text-align: center;
+      color: #fff; /* Texto blanco */
+  }
+
+  #miAudio {
+      display: none; /* Ocultar el reproductor de audio por defecto */
+  }
+
+  #reproducirBoton {
+      background-color: #4CAF50; /* Verde oscuro */
+      color: white;
+      border: none;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+  }
+
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +32,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    
     <title>FLORES</title>
 </head>
 
-<body class="container">
-    <div class="night"></div>
+<body class="container" onload="reproducirCancion()">
+
+   <div class="night">
+        <audio id="miAudio">
+            <source src="./img/Floricienta.mp3" type="audio/mp3">
+            Tu navegador no soporta la etiqueta de audio.
+        </audio>
+        <button id="reproducirBoton" onclick="reproducirCancion()">Haz Clic Aquí</button>
+    </div>
+
     <div class="flowers">
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
@@ -308,5 +343,11 @@
       </div>
     </div>
     <script src="main.js"></script>
+    <script>
+      function reproducirCancion() {
+          var miAudio = document.getElementById('miAudio');
+          miAudio.play();
+      }
+  </script>
   </body>
 </html>
